@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Understanding Us | Street Tai Chi & Homelessness Recovery</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- CSS STYLES --- */
+    :root {
+      --bg-paper: #F9F8F6;
+      --bg-stone: #E6E4E0;
+      --accent-teal: #466D6D;
+      --accent-earth: #8C735A;
+      --text-dark: #1a1a1a;
+      --text-body: #4A4A4A;
+      --nav-height: 70px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0;
+      background-color: var(--bg-paper);
+      color: var(--text-dark);
+      font-family: 'Lato', sans-serif;
+      line-height: 1.6;
+      padding-top: var(--nav-height);
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; margin: 0 0 1rem 0; line-height: 1.2; }
+    p { margin-bottom: 1.2rem; color: var(--text-body); }
+    a { text-decoration: none; color: inherit; transition: 0.2s; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    
+    .btn {
+      display: inline-block; padding: 12px 24px; font-weight: 900; 
+      text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.85rem;
+      border: 2px solid transparent; cursor: pointer; border-radius: 4px; text-align: center;
+    }
+    .btn-primary { background: var(--accent-teal); color: white; }
+    .btn-outline { border-color: var(--text-dark); color: var(--text-dark); }
+    .btn-outline:hover { background: var(--text-dark); color: white; }
+
+    /* HEADER */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-height);
+      background: rgba(255,255,255,0.98); border-bottom: 1px solid rgba(0,0,0,0.05);
+      z-index: 1000; display: flex; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .nav-wrapper { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+    .logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.4rem; cursor: pointer; }
+    .logo span { color: var(--accent-teal); }
+    
+    nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+    nav li { cursor: pointer; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; position: relative; }
+    nav li:after { content:''; position:absolute; width:0; height:2px; bottom:-5px; left:0; background:var(--accent-teal); transition:0.3s; }
+    nav li:hover:after, nav li.active:after { width: 100%; }
+    
+    .nav-btn-donate { color: var(--accent-earth); border: 1px solid var(--accent-earth); padding: 5px 15px; border-radius: 4px; }
+    .nav-btn-donate:hover { background: var(--accent-earth); color: white; }
+
+    /* VIEWS */
+    main { flex: 1; position: relative; }
+    .view-section { 
+      display: none; 
+      padding: 60px 0;
+      animation: fadeIn 0.4s ease;
+    }
+    .view-section.active { display: block; } 
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* HOME HERO */
+    .hero-banner {
+      background: var(--bg-dark); color: white; padding: 80px 0; text-align: center; border-radius: 8px; margin-bottom: 40px;
+      /* Fallback if image fails */
+      background-image: linear-gradient(rgba(32,35,38,0.8), rgba(32,35,38,0.8)), url('https://static.wixstatic.com/media/d59fbb_eff32d0ba1f7424dadfbebbbf988d93c~mv2.jpeg');
+      background-size: cover; background-position: center;
+    }
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: -30px; margin-bottom: 60px; }
+    .stat-card { background: white; padding: 25px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; }
+    .stat-num { font-size: 2.5rem; font-weight: 900; color: var(--accent-teal); display: block; font-family: 'Playfair Display', serif; }
+    
+    /* PRESS GRID */
+    .press-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+    .press-card { background: white; border: 1px solid rgba(0,0,0,0.05); border-radius: 4px; overflow: hidden; transition: 0.2s; }
+    .press-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+    .press-body { padding: 25px; }
+    .press-source { font-size: 0.7rem; font-weight: 900; text-transform: uppercase; color: var(--accent-earth); letter-spacing: 0.1em; }
+    .press-date { font-size: 0.8rem; color: #999; display: block; margin-bottom: 10px; }
+
+    /* DONATE GRID */
+    .donate-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+    .donate-option { 
+      background: white; border: 2px solid #ddd; padding: 30px; text-align: center; 
+      border-radius: 8px; cursor: pointer; transition: 0.2s;
+    }
+    .donate-option:hover, .donate-option.selected { border-color: var(--accent-earth); background: #fff8f5; }
+    .donate-amt { font-size: 2rem; font-weight: 900; color: var(--text-dark); display: block; margin-bottom: 5px; }
+    
+    /* BLOG */
+    .blog-list { display: flex; flex-direction: column; gap: 40px; max-width: 800px; margin: 0 auto; }
+    .blog-item { border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 40px; }
+    .blog-meta { font-size: 0.85rem; color: #888; margin-bottom: 10px; }
+    .read-more { font-weight: 700; color: var(--accent-teal); text-decoration: underline; }
+
+    footer { background: var(--bg-dark); color: rgba(255,255,255,0.6); padding: 40px 0; font-size: 0.9rem; text-align: center; margin-top: auto; }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; } /* Mobile menu needed */
+      .stats-grid, .donate-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav-wrapper">
+      <div class="logo" onclick="router('home')">Understanding<span>Us</span></div>
+      <nav>
+        <ul>
+          <li onclick="router('home')" id="nav-home" class="active">Mission</li>
+          <li onclick="router('practice')" id="nav-practice">Street Tai Chi</li>
+          <li onclick="router('media')" id="nav-media">Press</li>
+          <li onclick="router('blog')" id="nav-blog">Stories</li>
+          <li onclick="router('team')" id="nav-team">Team</li>
+          <li onclick="router('donate')" id="nav-donate" class="nav-btn-donate">Donate</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app-container">
+
+    <section id="view-home" class="view-section active">
+      <div class="container">
+        <div class="hero-banner">
+          <h1 style="font-size: 3.5rem;">Recovery Begins with Gravity.</h1>
+          <p style="font-size: 1.2rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto;">
+            An agency-stabilizing on-ramp for individuals navigating chaos and homelessness. We don't fix people. We provide the ground to stand on.
+          </p>
+          <div style="margin-top: 30px;">
+            <button class="btn btn-primary" onclick="router('practice')">See The Method</button>
+            <button class="btn btn-outline" style="border-color:white; color:white;" onclick="router('donate')">Support Us</button>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-num">5,500+</span>
+            <p>Meals Served (2025)</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">200+</span>
+            <p>Practice Events</p>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num">25+</span>
+            <p>Avg. Daily Attendance</p>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:50px; align-items:center;">
+          <div>
+            <span style="color:var(--accent-earth); font-weight:900; letter-spacing:0.1em; text-transform:uppercase;">The On-Ramp</span>
+            <h2>We Are Not the Destination.</h2>
+            <p>Many people experiencing trauma or homelessness aren't ready for complex systems like healthcare or workforce services. They need stabilization first.</p>
+            <p>Understanding Us provides that on-ramp through consistent, peer-led movement and community. We help people regain the agency needed to make the choice to move forward.</p>
+          </div>
+          <div style="background:#ddd; height:300px; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#888;">
+            [Image: Community Circle in Park]
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-practice" class="view-section">
+      <div class="container">
+        <div style="text-align:center; max-width:700px; margin:0 auto 50px;">
+          <h2>The Practice: Street Tai Chi</h2>
+          <p>We use gravity to anchor the body. By focusing on weight transfer and balance, we help clear the "noise" of trauma so the nervous system can down-regulate.</p>
+        </div>
+
+        <div style="background: white; padding: 40px; border-left: 5px solid var(--accent-teal); border-radius: 4px; margin-bottom: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+          <h3>Weekly Schedule</h3>
+          <p>We are consistently present at Washington Square Park (451 South State Street). Rain or shine.</p>
+          <div style="display:flex; gap:15px; margin: 20px 0;">
+            <div style="background:var(--bg-stone); padding:10px 20px; font-weight:bold;">MON</div>
+            <div style="background:var(--bg-stone); padding:10px 20px; font-weight:bold;">WED</div>
+            <div style="background:var(--bg-stone); padding:10px 20px; font-weight:bold;">THU</div>
+            <div style="background:var(--bg-stone); padding:10px 20px; font-weight:bold;">SAT</div>
+          </div>
+          <p><strong>9:30 AM:</strong> Coffee & Burritos (Hospitality)<br><strong>10:00 AM:</strong> Gentle Movement (Peer-Led)</p>
+        </div>
+
+        <h3 style="margin-bottom:20px;">Volunteer Roles</h3>
+        <div class="press-grid"> 
+          <div class="press-card press-body">
+            <h4>🌯 Burrito Assembly</h4>
+            <p>Every other Thursday at First Unitarian Church. High energy, rolling, wrapping, and singing.</p>
+          </div>
+          <div class="press-card press-body">
+            <h4>🥔 Potato Bakers</h4>
+            <p>Prep from home! Bake potatoes a day prior and deliver them. Perfect for introverts.</p>
+          </div>
+          <div class="press-card press-body">
+            <h4>🌳 Park Presence</h4>
+            <p>Be a calm, grounded presence on-site. Help set up balance boards or simply listen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-media" class="view-section">
+      <div class="container">
+        <h2 style="margin-bottom: 40px; border-bottom: 1px solid #ddd; padding-bottom: 20px;">Press & Media Coverage</h2>
+        
+        <div class="press-grid">
+          <a href="https://ksltv.com/615243/street-tai-chi-helps-people-experiencing-homelessness-find-balance/" target="_blank" class="press-card">
+            <div class="press-body">
+              <span class="press-source">KSL TV 5</span>
+              <span class="press-date">Jan 2024</span>
+              <h3>"Street Tai Chi Helps People Find Balance"</h3>
+              <p>Coverage of how our morning sessions provide physiological stability in Washington Square.</p>
+            </div>
+          </a>
+          <a href="https://www.sltrib.com/news/2023/12/25/finding-balance-washington-square/" target="_blank" class="press-card">
+            <div class="press-body">
+              <span class="press-source">Salt Lake Tribune</span>
+              <span class="press-date">Dec 2023</span>
+              <h3>Finding Balance in Washington Square</h3>
+              <p>A deep dive into the community culture and the non-clinical approach to recovery.</p>
+            </div>
+          </a>
+          <a href="https://www.cityweekly.net/utah/street-tai-chi/Content?oid=21289658" target="_blank" class="press-card">
+            <div class="press-body">
+              <span class="press-source">City Weekly</span>
+              <span class="press-date">Oct 2023</span>
+              <h3>Street Tai Chi: A Movement for Change</h3>
+              <p>Bernie Hart discusses the origins of the program and the philosophy of agency.</p>
+            </div>
+          </a>
+          <a href="https://www.deseret.com/utah/2023/10/2/23899658/homeless-tai-chi-salt-lake-city" target="_blank" class="press-card">
+            <div class="press-body">
+              <span class="press-source">Deseret News</span>
+              <span class="press-date">Oct 2023</span>
+              <h3>Finding Peace in the Park</h3>
+              <p>How daily routines assist those in transition to find grounding.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-blog" class="view-section">
+      <div class="container">
+        <h2 style="margin-bottom: 10px;">Stories of Agency</h2>
+        <p style="margin-bottom: 50px;">Updates from the square, volunteer spotlights, and learnings from the field.</p>
+
+        <div class="blog-list">
+          <div class="blog-item">
+            <div class="blog-meta">Jan 15, 2026 • by Bernie Hart</div>
+            <h3>Why We Don't "Fix" People</h3>
+            <p>At Understanding Us, we have a hard rule: we are not clinicians. We do not diagnose. We realized early on that trying to "fix" someone often robs them of the agency they need to heal themselves...</p>
+            <a href="#" class="read-more">Read Full Story</a>
+          </div>
+
+          <div class="blog-item">
+            <div class="blog-meta">Dec 20, 2025 • by Marita Hart</div>
+            <h3>5,000 Burritos Later</h3>
+            <p>Reflecting on a year of hospitality. It’s not just about the food; it’s about the consistency. When the coffee is there at 9:30 AM every single day, trust begins to form...</p>
+            <a href="#" class="read-more">Read Full Story</a>
+          </div>
+
+          <div class="blog-item">
+            <div class="blog-meta">Nov 10, 2025 • Volunteer Spotlight</div>
+            <h3>The Potato Bakers: Heroes from Home</h3>
+            <p>You don't have to be in the park to make a difference. Meet the quiet army of volunteers who bake potatoes in their own ovens to fuel our Thursday sessions...</p>
+            <a href="#" class="read-more">Read Full Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-team" class="view-section">
+      <div class="container text-center">
+        <h2>Leadership</h2>
+        <p style="margin-bottom: 50px;">The team holding the space.</p>
+
+        <div class="press-grid" style="text-align: center;">
+          <div class="press-card press-body">
+            <div style="width:100px; height:100px; background:#ddd; border-radius:50%; margin:0 auto 20px;"></div>
+            <h3>Bernie Hart</h3>
+            <span class="press-source">President & Founder</span>
+            <p>Leading the vision and on-site practice.</p>
+          </div>
+          <div class="press-card press-body">
+            <div style="width:100px; height:100px; background:#ddd; border-radius:50%; margin:0 auto 20px;"></div>
+            <h3>Marita Hart</h3>
+            <span class="press-source">Operations Lead</span>
+            <p>Managing logistics, volunteers, and the burritos.</p>
+          </div>
+          <div class="press-card press-body">
+            <div style="width:100px; height:100px; border: 2px dashed #ccc; border-radius:50%; margin:0 auto 20px; display:flex; align-items:center; justify-content:center; color:#999; font-size:2rem;">?</div>
+            <h3>Open Seat</h3>
+            <span class="press-source">Board Member</span>
+            <p>Recruiting: Legal/Finance Expertise.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-donate" class="view-section">
+      <div class="container">
+        <div style="text-align: center; margin-bottom: 40px;">
+          <h2>Invest in Recovery</h2>
+          <p>Your donation buys time and rhythm. All donations are tax-deductible (501c3).</p>
+        </div>
+
+        <div class="donate-grid">
+          <div class="donate-option" onclick="selectDonation(15)">
+            <span class="donate-amt">$15</span>
+            <span class="donate-desc">Weekly "Scholarship" Packet</span>
+          </div>
+          <div class="donate-option selected" onclick="selectDonation(60)">
+            <span class="donate-amt">$60</span>
+            <span class="donate-desc">Sponsor a Student (Monthly)</span>
+          </div>
+          <div class="donate-option" onclick="selectDonation(750)">
+            <span class="donate-amt">$750</span>
+            <span class="donate-desc">Year of Engagement Support</span>
+          </div>
+        </div>
+
+        <div style="max-width: 500px; margin: 0 auto; border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+          <iframe 
+            src="https://donorbox.org/embed/understanding-us?default_interval=m&amount=60" 
+            name="donorbox" 
+            allowpaymentrequest="" 
+            seamless="seamless" 
+            frameborder="0" 
+            scrolling="no" 
+            height="900px" 
+            width="100%" 
+            style="max-width: 500px; min-width: 250px; max-height:none!important"
+            id="dbox-iframe">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Understanding Us</strong><br>Salt Lake City, Utah | info@understandingusnonprofit.org</p>
+      <p style="opacity:0.5; font-size:0.8rem;">&copy; 2026 Understanding Us. A registered 501(c)(3) Nonprofit Organization.</p>
+    </div>
+  </footer>
+
+  <script>
+    // 1. ROUTER: Handles content swapping
+    function router(viewName) {
+      console.log("Navigating to:", viewName);
+      
+      // Hide all sections
+      const sections = document.querySelectorAll('.view-section');
+      sections.forEach(s => s.classList.remove('active'));
+
+      // Show target section
+      const target = document.getElementById('view-' + viewName);
+      if (target) {
+        target.classList.add('active');
+        window.scrollTo(0, 0); 
+      }
+
+      // Update Nav State
+      const navItems = document.querySelectorAll('nav li');
+      navItems.forEach(n => n.classList.remove('active'));
+      
+      const activeNav = document.getElementById('nav-' + viewName);
+      if (activeNav) activeNav.classList.add('active');
+    }
+
+    // 2. DONATION LOGIC: Updates the iframe based on box selection
+    function selectDonation(amount) {
+      // Highlight the box
+      const boxes = document.querySelectorAll('.donate-option');
+      boxes.forEach(b => b.classList.remove('selected'));
+      event.currentTarget.classList.add('selected');
+
+      // Determine interval
+      let interval = 'o'; // one-time default
+      if (amount === 60) interval = 'm'; // monthly
+      
+      // Update iframe URL
+      const iframe = document.getElementById('dbox-iframe');
+      if(iframe) {
+        iframe.src = `https://donorbox.org/embed/understanding-us?default_interval=${interval}&amount=${amount}`;
+      }
+    }
+
+    // 3. INIT
+    document.addEventListener('DOMContentLoaded', () => {
+      // Start on Home
+      router('home');
+    });
+  </script>
+
+</body>
+</html>
