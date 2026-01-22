@@ -1,0 +1,39 @@
+<section class="section-pad">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:40px;">
+      <h2>Invest in Recovery</h2>
+      <p>Your donation buys time and rhythm. All donations are tax-deductible.</p>
+    </div>
+
+    <div class="donate-grid">
+      <div class="donate-option" data-amt="15" onclick="selectDonation(15)">
+        <span class="donate-amt">$15</span>
+        <small>Weekly "Scholarship"</small>
+      </div>
+      <div class="donate-option selected" data-amt="60" onclick="selectDonation(60)">
+        <span class="donate-amt">$60</span>
+        <small>Sponsor a Student (Monthly)</small>
+      </div>
+      <div class="donate-option" data-amt="750" onclick="selectDonation(750)">
+        <span class="donate-amt">$750</span>
+        <small>Year of Support</small>
+      </div>
+    </div>
+
+    <div style="max-width:500px; margin:0 auto; border:1px solid #eee;">
+      <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
+      <iframe 
+        src="https://donorbox.org/embed/understanding-us?default_interval=m&amount=60" 
+        name="donorbox" 
+        id="dbox-iframe"
+        allowpaymentrequest="" 
+        seamless="seamless" 
+        frameborder="0" 
+        scrolling="no" 
+        height="900px" 
+        width="100%" 
+        style="max-width: 500px; min-width: 250px; max-height:none!important">
+      </iframe>
+    </div>
+  </div>
+</section>
