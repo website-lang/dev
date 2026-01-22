@@ -1,85 +1,84 @@
-/* --- PRACTICE PAGE STYLES --- */
+/* --- EDITORIAL PRACTICE PAGE --- */
 
-/* The "Timeline" Container */
-.timeline-wrapper {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px 0;
-}
-
-/* The Vertical Line */
-.timeline-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 20px; /* Adjust for mobile */
-  width: 2px;
-  background: #e0e0e0;
-}
-
-/* Individual Timeline Items */
-.timeline-item {
-  position: relative;
-  padding-left: 60px;
-  margin-bottom: 50px;
-}
-
-/* The Number Bubble */
-.timeline-marker {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 42px;
-  height: 42px;
-  background: white;
-  border: 2px solid var(--accent-teal);
-  border-radius: 50%;
-  text-align: center;
-  line-height: 38px;
+/* 1. Typography Upgrades */
+.hero-eyebrow {
+  font-family: 'Lato', sans-serif;
   font-weight: 900;
-  color: var(--accent-teal);
-  z-index: 1;
-}
-
-/* Highlighting the Logistics Card */
-.logistics-card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-  border-top: 6px solid var(--accent-earth);
-  padding: 40px;
-  margin: -60px auto 80px; /* Pull it up over the hero */
-  position: relative;
-  max-width: 900px;
-}
-
-.day-badge {
-  display: inline-block;
-  padding: 8px 16px;
-  background: var(--bg-stone);
-  color: var(--text-dark);
-  font-weight: 800;
-  font-size: 0.8rem;
-  margin: 0 5px 10px 0;
-  border-radius: 4px;
-  letter-spacing: 0.05em;
-}
-
-/* "Pro Tip" Box */
-.pro-tip {
-  background: #f4fbfb;
-  border-left: 4px solid var(--accent-teal);
-  padding: 15px 20px;
-  margin-top: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   font-size: 0.9rem;
-  color: #555;
+  color: var(--accent-earth);
+  display: block;
+  margin-bottom: 20px;
 }
 
-@media (min-width: 768px) {
-  .timeline-wrapper::before { left: 50%; margin-left: -1px; }
-  .timeline-item { width: 50%; padding-left: 0; padding-right: 50px; margin-left: 0; text-align: right; }
-  .timeline-item:nth-child(even) { margin-left: 50%; padding-right: 0; padding-left: 50px; text-align: left; }
-  .timeline-marker { left: 50%; margin-left: -21px; }
+.hero-headline {
+  font-size: 4rem; /* Big, magazine style */
+  line-height: 1.1;
+  margin-bottom: 30px;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-lead {
+  font-size: 1.4rem; /* Much larger for readability */
+  line-height: 1.6;
+  font-weight: 300;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* 2. The "floating" Logistics Bar */
+.logistics-bar {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1); /* Soft, deep shadow */
+  padding: 40px;
+  margin-top: -80px; /* Overlaps the hero image */
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  border-bottom: 4px solid var(--accent-teal);
+}
+
+.logistics-item { flex: 1; min-width: 250px; }
+.logistics-label { 
+  font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; 
+  color: #888; font-weight: 700; margin-bottom: 10px; display: block; 
+}
+.logistics-value { 
+  font-size: 1.5rem; font-weight: 900; color: var(--text-dark); 
+  font-family: 'Playfair Display', serif; 
+}
+
+/* 3. The "Flow" List (Clean & Big) */
+.flow-container { max-width: 800px; margin: 80px auto; }
+
+.flow-step {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 50px;
+  align-items: flex-start;
+}
+
+.flow-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(70, 109, 109, 0.2); /* Very subtle teal transparent */
+  line-height: 0.8;
+  min-width: 60px;
+  font-family: 'Playfair Display', serif;
+}
+
+.flow-content h3 { font-size: 1.8rem; margin-bottom: 10px; color: var(--accent-teal); }
+.flow-content p { font-size: 1.2rem; color: #555; line-height: 1.7; }
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .hero-headline { font-size: 2.8rem; }
+  .hero-lead { font-size: 1.1rem; }
+  .logistics-bar { flex-direction: column; align-items: flex-start; padding: 30px; margin-top: -40px; }
 }
