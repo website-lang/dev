@@ -78,12 +78,16 @@ async function loadPressData() {
     const res = await fetch('data/press.json');
     const data = await res.json();
     const container = document.getElementById('press-container');
+    
     if(container) {
       container.innerHTML = data.map(item => `
-        <a href="${item.link}" target="_blank" class="press-card">
-          <span class="press-source">${item.source} • ${item.date}</span>
-          <h3>${item.title}</h3>
-          <p>Read Article →</p>
+        <a href="${item.link}" target="_blank" class="press-list-item">
+          <div class="press-list-date">${item.date}</div>
+          <div class="press-list-content">
+            <span class="press-list-source">${item.source}</span>
+            <h3 class="press-list-title">${item.title}</h3>
+          </div>
+          <div class="press-list-arrow">→</div>
         </a>
       `).join('');
     }
