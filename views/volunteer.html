@@ -9,7 +9,28 @@
   </div>
 </section>
 
-<section class="section-pad">
+<div style="background: var(--bg-paper); padding: 20px 0; border-bottom: 1px solid #e0e0e0; position: sticky; top: 70px; z-index: 90; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+  <div class="container text-center">
+    <span style="font-size: 0.8rem; font-weight: bold; text-transform: uppercase; color: #888; margin-right: 15px; letter-spacing: 0.05em; display: inline-block; margin-bottom: 10px;">Jump to a Role:</span>
+    <div style="display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; vertical-align: middle;">
+      
+      <button onclick="document.getElementById('burrito').scrollIntoView({behavior: 'smooth'})" class="pill-btn" style="border:none; font-size: 0.85rem;">
+        🌯 Burrito Assembly
+      </button>
+      
+      <button onclick="document.getElementById('morning').scrollIntoView({behavior: 'smooth'})" class="pill-btn" style="border:none; font-size: 0.85rem;">
+        ☕ Morning Crew
+      </button>
+      
+      <button onclick="document.getElementById('backbone').scrollIntoView({behavior: 'smooth'})" class="pill-btn" style="border:none; font-size: 0.85rem;">
+        🧠 Behind the Scenes
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<section id="burrito" class="section-pad">
   <div class="container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 50px; align-items: center;">
       
@@ -45,7 +66,7 @@
   </div>
 </section>
 
-<section style="background: var(--bg-stone); padding: 80px 0;">
+<section id="morning" style="background: var(--bg-stone); padding: 80px 0;">
   <div class="container">
     <div class="text-center" style="max-width: 700px; margin: 0 auto 60px;">
       <h2>The Morning Logistics</h2>
@@ -83,7 +104,7 @@
   </div>
 </section>
 
-<section class="section-pad">
+<section id="backbone" class="section-pad">
   <div class="container">
     <div class="text-center" style="margin-bottom: 60px;">
       <h2>The Backbone</h2>
