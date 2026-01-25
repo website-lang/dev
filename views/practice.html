@@ -40,7 +40,29 @@
   </div>
 </div>
 
-<section style="background: white; padding: 80px 0 40px;">
+<div style="background: rgba(255,255,255,0.95); padding: 20px 0; border-bottom: 1px solid #e0e0e0; position: sticky; top: 70px; z-index: 90; box-shadow: 0 4px 20px rgba(0,0,0,0.03); backdrop-filter: blur(5px); margin-top: 40px;">
+  <div class="container text-center">
+    <span style="font-size: 0.75rem; font-weight: 900; text-transform: uppercase; color: #999; margin-right: 15px; letter-spacing: 0.1em; display: inline-block; vertical-align: middle;">Explore the Practice:</span>
+    
+    <div style="display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; vertical-align: middle;">
+      
+      <button onclick="document.getElementById('method').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
+        The Method
+      </button>
+      
+      <button onclick="document.getElementById('flow').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
+        Daily Flow
+      </button>
+      
+      <button onclick="document.getElementById('family').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
+        For Families
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<section id="method" style="background: white; padding: 80px 0 40px;">
   <div class="container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 60px; align-items: center;">
       
@@ -76,7 +98,7 @@
   </div>
 </section>
 
-<section class="section-pad">
+<section id="flow" class="section-pad">
   <div class="container">
     <div class="text-center" style="margin-bottom: 60px;">
       <h2 style="font-size: 2.5rem;">The Morning Flow</h2>
@@ -139,7 +161,7 @@
   </div>
 </section>
 
-<section style="background: var(--bg-stone); padding: 80px 0;">
+<section id="family" style="background: var(--bg-stone); padding: 80px 0;">
   <div class="container text-center">
     <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Come As You Are</h2>
     <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto 40px; color: #444;">
