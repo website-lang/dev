@@ -403,3 +403,22 @@ footer { background: var(--bg-dark); color: #aaa; padding: 60px 0; margin-top: a
 #approach, #scripts, #safety, #faq {
   scroll-margin-top: 180px; 
 }
+
+/* --- VISUAL WARMTH UPDATES --- */
+
+/* Make emojis in the "Vibe Grid" look like icons */
+.vibe-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.vibe-card:hover .vibe-icon {
+  transform: scale(1.1) rotate(10deg); /* A little playful bounce */
+}
+
+/* Update the Flow Number color to be warmer */
+.flow-number {
+  color: rgba(140, 115, 90, 0.25); /* Uses the Earth tone (Gold/Bronze) instead of cold Teal */
+}
