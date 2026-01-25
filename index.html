@@ -35,6 +35,7 @@
         <ul>
           <li><a href="#home">Mission</a></li>
           <li><a href="#practice">The Practice</a></li>
+          <li><a href="#family">Families</a></li>
           <li><a href="#volunteer">Get Involved</a></li>
           <li><a href="#media">Press</a></li>
           <li><a href="#team">Team</a></li>
@@ -74,6 +75,7 @@
 
         <div class="footer-links">
           <h4>Explore</h4>
+          <a href="#family">For Families</a>
           <a href="#blog">Stories of Agency</a>
           <a href="#team">Leadership</a>
           <a href="#donate">Support the Work</a>
@@ -81,7 +83,7 @@
 
       </div>
       <div class="copyright">
-        &copy; 2026 Understanding Us. All rights reserved.
+        © 2026 Understanding Us. All rights reserved.
       </div>
     </div>
   </footer>
@@ -89,21 +91,15 @@
   <script src="js/app.js"></script>
   
   <script>
-    // FIXED: Toggle the 'open' class on the NAV element, not the UL
     const toggleBtn = document.querySelector('.mobile-toggle');
     const nav = document.querySelector('nav');
 
     toggleBtn.addEventListener('click', () => {
       const isOpen = nav.classList.contains('open');
-      
-      // Toggle Class
       nav.classList.toggle('open');
-      
-      // Accessibility Update
       toggleBtn.setAttribute('aria-expanded', !isOpen);
     });
 
-    // Close menu when a link is clicked
     nav.addEventListener('click', (e) => {
       if(e.target.tagName === 'A') {
         nav.classList.remove('open');
