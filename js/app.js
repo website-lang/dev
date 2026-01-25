@@ -1,5 +1,5 @@
 const appContainer = document.getElementById('app-container');
-const views = ['home', 'practice', 'volunteer', 'media', 'blog', 'team', 'donate'];
+const views = ['home', 'practice', 'volunteer', 'media', 'blog', 'team', 'donate', 'family'];
 const viewCache = {};
 
 // 1. ROUTER: Loads content into the container
