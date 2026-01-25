@@ -93,39 +93,49 @@ nav li { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; }
 .tab-content.active { display: block; }
 
 /* =========================================
-   5. UPDATED DONATE GRID (Connected Cards)
+   UPDATED DONATE GRID (2x2 Layout)
    ========================================= */
 .donate-grid { 
   display: grid; 
-  grid-template-columns: 1fr 1fr 1fr; 
-  gap: 0; /* Connected cards */
-  border: 1px solid #ddd;
-  border-radius: 8px; /* Round the whole container */
-  overflow: hidden; 
+  grid-template-columns: 1fr 1fr; /* 2 Columns */
+  gap: 0; 
   margin-bottom: 30px;
+  /* Remove the outer border/radius here, let individual items handle it */
+  border: none; 
 }
 
 .donate-option { 
   background: white; 
-  padding: 40px 30px; /* Larger padding for editorial feel */
+  padding: 40px 30px; 
   text-align: left; 
-  border-right: 1px solid #eee; 
-  border-radius: 0; 
   cursor: pointer; 
   transition: all 0.2s;
-  border-bottom: 4px solid transparent; /* Prepare for hover/active state */
+  
+  /* Collapsing Borders Strategy */
+  border: 1px solid #eee;
+  margin: -1px; /* Pulls them together to overlap borders */
+  position: relative; /* Ensures selected state sits on top */
+  z-index: 1;
 }
 
-.donate-option:last-child { border-right: none; }
-
-.donate-option:hover { background: #fafafa; }
+.donate-option:hover { 
+  background: #fafafa; 
+  z-index: 2; /* Bring to front on hover */
+  border-color: #ddd;
+}
 
 .donate-option.selected { 
   background: #fff8f5; 
-  border-bottom: 4px solid var(--accent-earth); 
-  padding-bottom: 36px; /* Adjust for border */
+  border-color: var(--accent-earth);
+  z-index: 3; /* Keep selected on top */
 }
+
 .donate-amt { font-size: 1.8rem; font-weight: 900; display: block; }
+
+/* Mobile: Stack them 1 column */
+@media (max-width: 768px) {
+  .donate-grid { grid-template-columns: 1fr; }
+}
 
 /* =========================================
    6. PRACTICE PAGE STYLES
