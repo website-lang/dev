@@ -1,27 +1,15 @@
 [
   {
-    "source": "Deseret News",
-    "date": "Feb 2017",
-    "title": "Tai chi lessons bring exercise and hope for homeless",
-    "link": "https://www.deseret.com/2017/2/9/20605818/tai-chi-lessons-bring-exercise-and-hope-for-homeless#bernie-hart-leads-a-morning-tai-chi-class-at-the-salt-lake-main-library-for-the-citys-homeless-on-wednesday-feb-8-2017"
+    "source": "PBS Utah",
+    "date": "Jun 2025",
+    "title": "Understanding Us: Balancing with the Unhoused",
+    "link": "https://www.pbs.org/video/understanding-us-balancing-with-the-unhoused-ejv2hc/"
   },
   {
-    "source": "Associated Press",
-    "date": "Oct 2019",
-    "title": "Homeless people find friends, ease stress in tai chi class",
-    "link": "https://apnews.com/article/health-salt-lake-city-lifestyle-stress-us-news-4f42271eae374a5ea7b419de2ae53642/gallery/50738bb4f1454acd8c3994b31258b2c6"
-  },
-  {
-    "source": "Salt Lake Tribune",
-    "date": "May 2022",
-    "title": "Street Tai Chi is fostering trust, clarity and togetherness for one of the most vulnerable populations.",
-    "link": "https://www.sltrib.com/news/2022/05/13/first-ones-that-said-my/?utm_source=chatgpt.com"
-  },
-  {
-    "source": "Salt Lake Tribune",
-    "date": "Mar 2017",
-    "title": "Tai chi class offers SLC’s homeless a taste of stability amid the chaos",
-    "link": "https://www.sltrib.com/news/politics/2017/03/08/tai-chi-class-offers-slcs-homeless-a-taste-of-stability-amid-the-chaos/"
+    "source": "The Salt Lake Tribune",
+    "date": "Jun 2024",
+    "title": "Tai chi class in Utah aims to change lives of people struggling with homelessness",
+    "link": "https://youtu.be/YA_FmDrzde0?si=HsF_S8Uk5GQCToON"
   },
   {
     "source": "Fox 13 News Utah",
@@ -30,28 +18,10 @@
     "link": "https://www.fox13now.com/news/local-news/free-tai-chi-class-helps-homeless-find-stability-in-utah"
   },
   {
-    "source": "Utah Stories",
-    "date": "Jan 2020",
-    "title": "Street Tai Chi Helping Homeless in Salt Lake City",
-    "link": "https://utahstories.com/2020/01/street-tai-chi-helping-homeless-in-salt-lake-city/"
-  },
-  {
-    "source": "The Salt Lake Tribune",
-    "date": "Apr 2019",
-    "title": "Learning how Salt Lake City’s homeless find refuge and respect in the library inspired Emilio Estevez to make his new movie, ‘The Public’",
-    "link": "https://www.sltrib.com/artsliving/2019/04/05/learning-how-salt-lake/?utm_source=chatgpt.com"
-  },
-  {
-    "source": "Ksl News",
-    "date": "Feb 2017",
-    "title": "Tai Chi lessons bring exercise and hope for Salt Lake City's homeless",
-    "link": "https://www.ksl.com/article/43128563/tai-chi-lessons-bring-exercise-and-hope-for-salt-lake-citys-homeless"
-  },
-  {
-    "source": "PBS Utah",
-    "date": "Jun 2025",
-    "title": "Understanding Us: Balancing with the Unhoused",
-    "link": "https://www.pbs.org/video/understanding-us-balancing-with-the-unhoused-ejv2hc/"
+    "source": "Salt Lake Tribune",
+    "date": "May 2022",
+    "title": "Street Tai Chi is fostering trust, clarity and togetherness for one of the most vulnerable populations.",
+    "link": "https://www.sltrib.com/news/2022/05/13/first-ones-that-said-my/?utm_source=chatgpt.com"
   },
   {
     "source": "3rd HOUR TODAY",
@@ -60,15 +30,45 @@
     "link": "https://www.today.com/video/meet-the-couple-teaching-tai-chi-to-the-homeless-78306373890"
   },
   {
+    "source": "Utah Stories",
+    "date": "Jan 2020",
+    "title": "Street Tai Chi Helping Homeless in Salt Lake City",
+    "link": "https://utahstories.com/2020/01/street-tai-chi-helping-homeless-in-salt-lake-city/"
+  },
+  {
     "source": "The Doctors",
     "date": "Jan 2020",
     "title": "Couple Teaches Tai Chi Classes for the Homeless",
     "link": "https://www.youtube.com/watch?v=vpO6dSiJOTA"
   },
   {
+    "source": "Associated Press",
+    "date": "Oct 2019",
+    "title": "Homeless people find friends, ease stress in tai chi class",
+    "link": "https://apnews.com/article/health-salt-lake-city-lifestyle-stress-us-news-4f42271eae374a5ea7b419de2ae53642/gallery/50738bb4f1454acd8c3994b31258b2c6"
+  },
+  {
     "source": "The Salt Lake Tribune",
-    "date": "Jun 2024",
-    "title": "Tai chi class in Utah aims to change lives of people struggling with homelessness",
-    "link": "https://youtu.be/YA_FmDrzde0?si=HsF_S8Uk5GQCToON"
+    "date": "Apr 2019",
+    "title": "Learning how Salt Lake City’s homeless find refuge and respect in the library inspired Emilio Estevez to make his new movie, ‘The Public’",
+    "link": "https://www.sltrib.com/artsliving/2019/04/05/learning-how-salt-lake/?utm_source=chatgpt.com"
+  },
+  {
+    "source": "Salt Lake Tribune",
+    "date": "Mar 2017",
+    "title": "Tai chi class offers SLC’s homeless a taste of stability amid the chaos",
+    "link": "https://www.sltrib.com/news/politics/2017/03/08/tai-chi-class-offers-slcs-homeless-a-taste-of-stability-amid-the-chaos/"
+  },
+  {
+    "source": "Deseret News",
+    "date": "Feb 2017",
+    "title": "Tai chi lessons bring exercise and hope for homeless",
+    "link": "https://www.deseret.com/2017/2/9/20605818/tai-chi-lessons-bring-exercise-and-hope-for-homeless#bernie-hart-leads-a-morning-tai-chi-class-at-the-salt-lake-main-library-for-the-citys-homeless-on-wednesday-feb-8-2017"
+  },
+  {
+    "source": "Ksl News",
+    "date": "Feb 2017",
+    "title": "Tai Chi lessons bring exercise and hope for Salt Lake City's homeless",
+    "link": "https://www.ksl.com/article/43128563/tai-chi-lessons-bring-exercise-and-hope-for-salt-lake-citys-homeless"
   }
 ]
