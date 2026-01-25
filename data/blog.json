@@ -1,14 +1,23 @@
 [
   {
-    "date": "Jan 15, 2026",
-    "author": "Bernie Hart",
-    "title": "Why We Don't Fix People",
-    "preview": "At Understanding Us, we have a hard rule: we are not clinicians. We realized early on that trying to 'fix' someone often robs them of the agency they need to heal themselves."
+    "id": 1,
+    "title": "The dignity of a name.",
+    "category": "Identity",
+    "excerpt": "For three years, 'Sarah' existed in the city's databases as Case File #89204. She was a set of intake forms, a list of medical needs, and a housing vulnerability score. When she first walked past our circle in the park, she kept her head down, expecting another clipboard. We didn't offer her a form; we offered her a coffee. We didn't ask for her social security number; we asked for her name. For the next hour, she wasn't a statistic to be managed—she was just Sarah, moving in rhythm with her neighbors. She told us later that being treated with simple, undemanding dignity was the spark she needed to finally walk into a job interview she had been avoiding for months. She didn't need a lecture; she needed to feel human again.",
+    "date": "Fall 2025"
   },
   {
-    "date": "Dec 20, 2025",
-    "author": "Marita Hart",
-    "title": "5,000 Burritos Later",
-    "preview": "Reflecting on a year of hospitality. It’s not just about the food; it’s about the consistency. When the coffee is there at 9:30 AM every single day, trust begins to form."
+    "id": 2,
+    "title": "It starts with the feet.",
+    "category": "Methodology",
+    "excerpt": "Trauma lives in the body. For Marcus, survival mode meant a constant, low-level vibration of adrenaline. It kept him safe on the streets at night, but it made it impossible to sit still in a housing office during the day. When he first joined the circle, his hands shook. He couldn't close his eyes. We didn't ask him to 'calm down.' We simply put him on a balance board. The mechanics of gravity took over. To stay upright, his brain had to focus on his feet. For the first time in years, the noise in his head went quiet, replaced by the immediate physical reality of finding his center. This is the 'On-Ramp.' Before Marcus could navigate the housing system, he first had to learn how to navigate gravity.",
+    "date": "Winter 2025"
+  },
+  {
+    "id": 3,
+    "title": "The Warm Handoff",
+    "category": "Outcomes",
+    "excerpt": "We talk a lot about 'Housing First,' but for people who have been burned by the system, it has to be 'Trust First.' James had been offered help a dozen times, but he always ghosted the appointments. He didn't trust the suits. But he trusted the circle. He came every Tuesday and Thursday, rain or shine, for four months. That consistency built a bridge. When our Pathway Connector finally suggested a meeting with a housing partner, James didn't run. He asked, 'Are you coming with me?' We did. We walked him to the door and introduced him. Because he was regulated, supported, and ready, the appointment stuck. James got his keys last week. We provided the stability; he reclaimed the agency.",
+    "date": "Spring 2026"
   }
 ]
