@@ -1,26 +1,49 @@
-<section class="section-pad">
+<section style="background: var(--bg-dark); color: white; padding: 120px 0 80px; text-align: center;">
   <div class="container">
-    <div class="text-center" style="margin-bottom:40px;">
-      <h2>Invest in Recovery</h2>
-      <p>Your donation buys time and rhythm. All donations are tax-deductible.</p>
-    </div>
+    <span class="hero-eyebrow">Recovery is a Routine</span>
+    <h1 class="hero-headline" style="color:white; margin-bottom:30px;">Buy the Rhythm.</h1>
+    <p class="hero-lead" style="color:#ccc;">
+      Trauma creates chaos. Healing requires consistency. <br>
+      Your donation doesn't just buy food; it buys the weekly rhythm that makes healing possible[cite: 47, 48].
+    </p>
+  </div>
+</section>
 
-    <div class="donate-grid">
-      <div class="donate-option" data-amt="15" onclick="selectDonation(15)">
+<section class="section-pad" style="background: white; margin-top: -60px; position: relative; z-index: 10; padding-top: 0;">
+  <div class="container">
+    
+    <div class="donate-grid" style="box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; background: white;">
+      
+      <div class="donate-option" onclick="selectDonation(15, 'w')">
+        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:#888; display:block; margin-bottom:10px;">The Scholarship</span>
         <span class="donate-amt">$15</span>
-        <small>Weekly "Scholarship"</small>
+        <small style="display:block; margin-top:5px; color:var(--accent-teal); font-weight:bold;">Weekly</small>
+        <p style="font-size:0.9rem; margin-top:15px; line-height:1.4; color:#666;">
+          Covers the cost of one student's weekly engagement packet (food, coffee, and gear)[cite: 64].
+        </p>
       </div>
-      <div class="donate-option selected" data-amt="60" onclick="selectDonation(60)">
+
+      <div class="donate-option selected" onclick="selectDonation(60, 'm')">
+        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:#888; display:block; margin-bottom:10px;">The Sponsor</span>
         <span class="donate-amt">$60</span>
-        <small>Sponsor a Student (Monthly)</small>
+        <small style="display:block; margin-top:5px; color:var(--accent-teal); font-weight:bold;">Monthly</small>
+        <p style="font-size:0.9rem; margin-top:15px; line-height:1.4; color:#666;">
+          Fully sponsors one student for a month. Ensures the burrito and the handshake are there 4 weeks in a row[cite: 51].
+        </p>
       </div>
-      <div class="donate-option" data-amt="750" onclick="selectDonation(750)">
+
+      <div class="donate-option" onclick="selectDonation(750, 'o')">
+        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:#888; display:block; margin-bottom:10px;">The Foundation</span>
         <span class="donate-amt">$750</span>
-        <small>Year of Support</small>
+        <small style="display:block; margin-top:5px; color:var(--accent-teal); font-weight:bold;">One-Time</small>
+        <p style="font-size:0.9rem; margin-top:15px; line-height:1.4; color:#666;">
+          A full Year of Engagement Support. This is the cost to keep one person anchored in the circle for 12 months.
+        </p>
       </div>
+
     </div>
 
-    <div style="max-width:500px; margin:0 auto; border:1px solid #eee;">
+    <div style="max-width:500px; margin: 40px auto 0; border:1px solid #eee; min-height: 500px;">
       <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
       <iframe 
         src="https://donorbox.org/embed/understanding-us?default_interval=m&amount=60" 
@@ -34,6 +57,47 @@
         width="100%" 
         style="max-width: 500px; min-width: 250px; max-height:none!important">
       </iframe>
+    </div>
+
+  </div>
+</section>
+
+<section class="section-pad" style="background: var(--bg-paper);">
+  <div class="container">
+    <div class="text-center" style="max-width: 800px; margin: 0 auto 60px;">
+      <h2>Where the Money Goes</h2>
+      <p style="font-size: 1.2rem;">
+        We run lean. We don't have a large office or expensive overhead. 
+        Your money goes directly to the "On-Ramp"—the tools and time required to build trust.
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+      
+      <div style="background:white; padding:30px; border-left: 4px solid var(--accent-earth);">
+        <h3 style="color: var(--accent-teal); font-size: 1.5rem;">Hospitality & Food</h3>
+        <p><strong>The First Layer of Trust.</strong></p>
+        <p style="font-size: 0.95rem;">
+          You can't do therapy if you're hungry. We spend funds on coffee, high-protein burritos, and water. This reduces friction and makes the space safe[cite: 157, 250].
+        </p>
+      </div>
+
+      <div style="background:white; padding:30px; border-left: 4px solid var(--accent-earth);">
+        <h3 style="color: var(--accent-teal); font-size: 1.5rem;">The Gear</h3>
+        <p><strong>Tools for Regulation.</strong></p>
+        <p style="font-size: 0.95rem;">
+          Balance boards, warming equipment, and basic safety supplies. These aren't toys; they are the physical tools we use to teach the nervous system how to settle[cite: 158, 251].
+        </p>
+      </div>
+
+      <div style="background:white; padding:30px; border-left: 4px solid var(--accent-earth);">
+        <h3 style="color: var(--accent-teal); font-size: 1.5rem;">Operations</h3>
+        <p><strong>Reliability requires Logistics.</strong></p>
+        <p style="font-size: 0.95rem;">
+          Gas, transport, and coordination. It costs money to ensure that when we say "9:30 AM," we are actually there at 9:30 AM. Consistency is our product[cite: 175, 256].
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
