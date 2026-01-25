@@ -89,7 +89,7 @@ async function loadPressData() {
     
     if(container) {
       container.innerHTML = data.map(item => `
-        <a href="${item.link}" target="_blank" class="press-list-item">
+        <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="press-list-item">
           <div class="press-list-date">${item.date}</div>
           <div class="press-list-content">
             <span class="press-list-source">${item.source}</span>
