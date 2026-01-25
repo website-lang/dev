@@ -111,17 +111,20 @@ async function loadBlogData() {
     const res = await fetch('data/blog.json');
     const data = await res.json();
     const container = document.getElementById('blog-container');
+    
     if(container) {
       container.innerHTML = data.map(item => `
-        <div style="border-bottom:1px solid #eee; padding-bottom:30px; margin-bottom:30px;">
-          <small style="color:#888;">${item.date} • ${item.author}</small>
-          <h2>${item.title}</h2>
-          <p>${item.preview}</p>
-          <a href="#" class="btn btn-outline" style="padding:8px 16px; font-size:0.8rem;">Read More</a>
+        <div class="press-card" style="padding: 30px; border-top: 4px solid var(--accent-earth);">
+          <span style="color:var(--accent-teal); font-weight:900; letter-spacing:0.1em; text-transform:uppercase; font-size:0.75rem; display:block; margin-bottom:15px;">${item.category}</span>
+          <h3 style="font-size: 1.4rem; margin-bottom: 15px;">${item.title}</h3>
+          <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">${item.excerpt}</p>
+          <div style="margin-top: 20px; font-size: 0.8rem; color: #999; font-style: italic;">
+            ${item.date}
+          </div>
         </div>
       `).join('');
     }
-  } catch(e) {}
+  } catch(e) { console.error("Blog data error", e); }
 }
 
 // INIT
