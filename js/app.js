@@ -46,19 +46,22 @@ async function preloadAll() {
 // 3. PAGE LOGIC: Donation Toggle
 function initDonationLogic() {
   window.selectDonation = function(amount, intervalCode) {
-    // 1. Visual Selection: Update the buttons
+    // 1. Visual Selection
     document.querySelectorAll('.donate-option').forEach(b => b.classList.remove('selected'));
-    // Find the button that was clicked and select it
-    // (We use a simple attribute match since we are passing arguments directly)
     event.currentTarget.classList.add('selected');
 
-    // 2. Logic: Map our specific buttons to Donorbox codes
-    // 'w' = weekly, 'm' = monthly, 'o' = one-time, 'y' = yearly
+    // 2. Build URL
+    let url = `https://donorbox.org/embed/understanding-us?default_interval=${intervalCode}`;
     
-    // 3. Update the Iframe Source
+    // Only add amount if it's a specific number (not custom)
+    if (amount) {
+      url += `&amount=${amount}`;
+    }
+
+    // 3. Update Iframe
     const iframe = document.getElementById('dbox-iframe');
     if(iframe) {
-      iframe.src = `https://donorbox.org/embed/understanding-us?default_interval=${intervalCode}&amount=${amount}`;
+      iframe.src = url;
     }
   };
 }
