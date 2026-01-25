@@ -1,4 +1,4 @@
-<section style="background: var(--bg-dark); color: white; padding: 120px 0 80px; text-align: center;">
+<section style="background: var(--bg-dark); color: white; padding: 120px 0 100px; text-align: center;">
   <div class="container">
     <span class="hero-eyebrow">Recovery is a Routine</span>
     <h1 class="hero-headline" style="color:white; margin-bottom:30px;">Fuel the Rhythm.</h1>
@@ -9,9 +9,31 @@
   </div>
 </section>
 
-<section class="section-pad" style="background: white; margin-top: -60px; position: relative; z-index: 10; padding-top: 0;">
+<div style="background: rgba(255,255,255,0.95); padding: 20px 0; border-bottom: 1px solid #e0e0e0; position: sticky; top: 70px; z-index: 90; box-shadow: 0 4px 20px rgba(0,0,0,0.03); backdrop-filter: blur(5px);">
+  <div class="container text-center">
+    <span style="font-size: 0.75rem; font-weight: 900; text-transform: uppercase; color: #999; margin-right: 15px; letter-spacing: 0.1em; display: inline-block; vertical-align: middle;">Choose an Action:</span>
+    
+    <div style="display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; vertical-align: middle;">
+      
+      <button onclick="document.getElementById('options').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
+        Select a Plan
+      </button>
+      
+      <button onclick="document.getElementById('impact').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
+        See Your Impact
+      </button>
+
+    </div>
+  </div>
+</div>
+
+<section id="options" class="section-pad" style="background: white; position: relative; z-index: 10;">
   <div class="container">
     
+    <div class="text-center" style="margin-bottom: 40px;">
+      <h2 style="font-size: 2rem;">Choose Your Level of Support</h2>
+    </div>
+
     <div class="donate-grid" style="box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; background: white;">
       
       <div class="donate-option" onclick="selectDonation(15, 'w')">
@@ -62,7 +84,7 @@
   </div>
 </section>
 
-<section class="section-pad" style="background: var(--bg-paper);">
+<section id="impact" class="section-pad" style="background: var(--bg-paper);">
   <div class="container">
     <div class="text-center" style="max-width: 800px; margin: 0 auto 60px;">
       <h2>Where Your Contribution Goes</h2>
