@@ -280,3 +280,38 @@ footer { background: var(--bg-dark); color: #aaa; padding: 60px 0; margin-top: a
     padding-left: 0 !important;
   }
 }
+
+/* --- FIX: Mobile Menu Color --- */
+.mobile-toggle {
+  color: #000000 !important; /* Force Black */
+}
+
+/* --- FIX: "Graphic Artist" Jump Buttons --- */
+.pill-btn {
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #666;
+  padding: 10px 24px;
+  border-radius: 50px; /* Full pill shape */
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: 'Lato', sans-serif;
+}
+
+.pill-btn:hover {
+  border-color: var(--accent-teal);
+  color: var(--accent-teal);
+  background: rgba(70, 109, 109, 0.05); /* Very subtle teal tint */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* --- FIX: Scroll Offsets (The "Too Far" Fix) --- */
+/* This ensures the browser stops scrolling BEFORE the content hits the sticky headers */
+#burrito, #morning, #backbone {
+  scroll-margin-top: 180px; /* Header (70px) + Subnav (80px) + Breathing Room (30px) */
+}
