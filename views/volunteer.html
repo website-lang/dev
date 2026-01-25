@@ -9,21 +9,22 @@
   </div>
 </section>
 
-<div style="background: var(--bg-paper); padding: 20px 0; border-bottom: 1px solid #e0e0e0; position: sticky; top: 70px; z-index: 90; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+<div style="background: rgba(255,255,255,0.95); padding: 20px 0; border-bottom: 1px solid #e0e0e0; position: sticky; top: 70px; z-index: 90; box-shadow: 0 4px 20px rgba(0,0,0,0.03); backdrop-filter: blur(5px);">
   <div class="container text-center">
-    <span style="font-size: 0.8rem; font-weight: bold; text-transform: uppercase; color: #888; margin-right: 15px; letter-spacing: 0.05em; display: inline-block; margin-bottom: 10px;">Jump to a Role:</span>
-    <div style="display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center; vertical-align: middle;">
+    <span style="font-size: 0.75rem; font-weight: 900; text-transform: uppercase; color: #999; margin-right: 15px; letter-spacing: 0.1em; display: inline-block; vertical-align: middle;">Select a Role:</span>
+    
+    <div style="display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; vertical-align: middle;">
       
-      <button onclick="document.getElementById('burrito').scrollIntoView({behavior: 'smooth'})" class="pill-btn" style="border:none; font-size: 0.85rem;">
-        🌯 Burrito Assembly
+      <button onclick="document.getElementById('burrito').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
+        Burrito Assembly
       </button>
       
-      <button onclick="document.getElementById('morning').scrollIntoView({behavior: 'smooth'})" class="pill-btn" style="border:none; font-size: 0.85rem;">
-        ☕ Morning Crew
+      <button onclick="document.getElementById('morning').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
+        Morning Crew
       </button>
       
-      <button onclick="document.getElementById('backbone').scrollIntoView({behavior: 'smooth'})" class="pill-btn" style="border:none; font-size: 0.85rem;">
-        🧠 Behind the Scenes
+      <button onclick="document.getElementById('backbone').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
+        Behind the Scenes
       </button>
 
     </div>
