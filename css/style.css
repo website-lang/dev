@@ -357,3 +357,52 @@ footer { background: var(--bg-dark); color: #aaa; padding: 60px 0; margin-top: a
 #options, #impact {
   scroll-margin-top: 180px; 
 }
+
+
+/* --- BRIGHT HERO UPDATES --- */
+.hero-bright {
+  /* This gradient is dark at the bottom/left and clear at the top/right */
+  background-image: linear-gradient(to right, rgba(20,20,20,0.9) 0%, rgba(20,20,20,0.6) 40%, rgba(20,20,20,0) 100%), url('../images/hero.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Mobile Hero Fix */
+@media (max-width: 768px) {
+  .hero-bright {
+    background-image: linear-gradient(to bottom, rgba(20,20,20,0.3) 0%, rgba(20,20,20,0.9) 100%), url('../images/hero.jpg');
+    align-items: flex-end;
+    padding-bottom: 60px;
+  }
+}
+
+/* --- FEATURE GRID (The "Why" Section) --- */
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.feature-text h3 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--accent-teal);
+}
+
+.feature-card {
+  background: white;
+  padding: 40px;
+  border-left: 6px solid var(--accent-earth);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+@media (max-width: 768px) {
+  .feature-row { grid-template-columns: 1fr; gap: 30px; }
+  .feature-card { padding: 30px; }
+}
