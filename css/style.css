@@ -73,6 +73,21 @@ p { margin-bottom: 1.2rem; color: var(--text-body); }
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
+/* --- BUTTON VARIATION: Light Outline (For Dark Backgrounds) --- */
+.btn-outline-light {
+  border: 2px solid white;
+  color: white;
+  background: transparent;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-light:hover {
+  background: white;
+  color: var(--text-dark); /* Turns text dark on hover for readability */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
 /* =========================================
    3. HEADER & NAVIGATION
    ========================================= */
