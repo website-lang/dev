@@ -12,17 +12,9 @@
 <div style="background: rgba(255,255,255,0.95); padding: 20px 0; border-bottom: 1px solid #e0e0e0; position: sticky; top: 70px; z-index: 90; box-shadow: 0 4px 20px rgba(0,0,0,0.03); backdrop-filter: blur(5px);">
   <div class="container text-center">
     <span style="font-size: 0.75rem; font-weight: 900; text-transform: uppercase; color: #999; margin-right: 15px; letter-spacing: 0.1em; display: inline-block; vertical-align: middle;">Choose an Action:</span>
-    
     <div style="display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; vertical-align: middle;">
-      
-      <button onclick="document.getElementById('options').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
-        Select a Plan
-      </button>
-      
-      <button onclick="document.getElementById('impact').scrollIntoView({behavior: 'smooth'})" class="pill-btn">
-        See Your Impact
-      </button>
-
+      <button onclick="document.getElementById('options').scrollIntoView({behavior: 'smooth'})" class="pill-btn">Select a Plan</button>
+      <button onclick="document.getElementById('impact').scrollIntoView({behavior: 'smooth'})" class="pill-btn">See Your Impact</button>
     </div>
   </div>
 </div>
@@ -34,14 +26,14 @@
       <h2 style="font-size: 2rem;">Choose Your Level of Support</h2>
     </div>
 
-    <div class="donate-grid" style="box-shadow: 0 20px 50px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; background: white;">
+    <div class="donate-grid">
       
       <div class="donate-option" onclick="selectDonation(15, 'w')">
         <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:#888; display:block; margin-bottom:10px;">The Scholarship</span>
         <span class="donate-amt">$15</span>
         <small style="display:block; margin-top:5px; color:var(--accent-teal); font-weight:bold;">Weekly</small>
         <p style="font-size:0.9rem; margin-top:15px; line-height:1.4; color:#666;">
-          Supports one student's weekly engagement. It ensures the coffee is hot and the welcome is warm, week after week.
+          Supports one student's weekly engagement. Ensures the coffee is hot and the welcome is warm, week after week.
         </p>
       </div>
 
@@ -50,7 +42,7 @@
         <span class="donate-amt">$60</span>
         <small style="display:block; margin-top:5px; color:var(--accent-teal); font-weight:bold;">Monthly</small>
         <p style="font-size:0.9rem; margin-top:15px; line-height:1.4; color:#666;">
-          Sustains one student for a full month. This consistency allows trust to form, which is the prerequisite for any real change.
+          Sustains one student for a full month. This consistency allows trust to form, which is the prerequisite for change.
         </p>
       </div>
 
@@ -59,7 +51,16 @@
         <span class="donate-amt">$750</span>
         <small style="display:block; margin-top:5px; color:var(--accent-teal); font-weight:bold;">One-Time</small>
         <p style="font-size:0.9rem; margin-top:15px; line-height:1.4; color:#666;">
-          A full Year of Engagement Support. You are anchoring one person in the circle for 12 months, giving them the time needed to stabilize.
+          Anchors one person in the circle for 12 months. This gives them the long-term runway needed to stabilize.
+        </p>
+      </div>
+
+      <div class="donate-option" onclick="selectDonation(null, 'o')">
+        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:#888; display:block; margin-bottom:10px;">The Ally</span>
+        <span class="donate-amt">Custom</span>
+        <small style="display:block; margin-top:5px; color:var(--accent-teal); font-weight:bold;">Your Choice</small>
+        <p style="font-size:0.9rem; margin-top:15px; line-height:1.4; color:#666;">
+          Recovery looks different for everyone, and so does giving. Choose an amount that is meaningful to you.
         </p>
       </div>
 
