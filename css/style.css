@@ -315,3 +315,26 @@ footer { background: var(--bg-dark); color: #aaa; padding: 60px 0; margin-top: a
 #burrito, #morning, #backbone {
   scroll-margin-top: 180px; /* Header (70px) + Subnav (80px) + Breathing Room (30px) */
 }
+
+/* --- UPDATES FOR VISIBILITY & CONTRAST --- */
+
+/* Make the flow numbers pop more (Darker Teal) */
+.flow-number {
+  font-size: 3rem; 
+  font-weight: 900; 
+  color: rgba(70, 109, 109, 0.4); /* Increased opacity from 0.2 to 0.4 */
+  line-height: 0.8; 
+  min-width: 60px; 
+  font-family: 'Playfair Display', serif;
+}
+
+/* Ensure body text is readable on white backgrounds */
+.flow-content p, 
+.logistics-value + div {
+  color: #4a4a4a; /* Darker than #666 or #888 */
+}
+
+/* Fix Hero Text readability against images */
+.hero-eyebrow, .hero-lead {
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Adds a subtle drop shadow to white text */
+}
