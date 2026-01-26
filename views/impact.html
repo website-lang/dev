@@ -1,15 +1,65 @@
 <section style="background: var(--bg-dark); color: white; padding: 120px 0 100px; text-align: center;">
   <div class="container">
-    <span class="hero-eyebrow">Measurable Outcomes</span>
-    <h1 class="hero-headline" style="color:white; margin-bottom:30px;">The ROI of Dignity.</h1>
+    <span class="hero-eyebrow">Stewardship & Accountability</span>
+    <h1 class="hero-headline" style="color:white; margin-bottom:30px;">Trust is the Currency.</h1>
     <p class="hero-lead" style="color:#ccc;">
-      We don't just measure meals served. We measure the cost of <em>not</em> intervening. <br>
-      Stability costs pennies. Chaos costs thousands.
+      We measure what matters. From financial transparency to safety protocols, we treat every dollar and every participant with rigor.
     </p>
   </div>
 </section>
 
-<section class="section-pad" style="background: white;">
+<div style="background: rgba(255,255,255,0.95); padding: 20px 0; border-bottom: 1px solid #e0e0e0; position: sticky; top: 70px; z-index: 90; box-shadow: 0 4px 20px rgba(0,0,0,0.03); backdrop-filter: blur(5px);">
+  <div class="container text-center">
+    <span style="font-size: 0.75rem; font-weight: 900; text-transform: uppercase; color: #999; margin-right: 15px; letter-spacing: 0.1em; display: inline-block; vertical-align: middle;">Due Diligence:</span>
+    <div style="display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center; vertical-align: middle;">
+      <button onclick="document.getElementById('metrics').scrollIntoView({behavior: 'smooth'})" class="pill-btn">Impact Data</button>
+      <button onclick="document.getElementById('roi').scrollIntoView({behavior: 'smooth'})" class="pill-btn">The ROI</button>
+      <button onclick="document.getElementById('financials').scrollIntoView({behavior: 'smooth'})" class="pill-btn">Financials</button>
+      <button onclick="document.getElementById('safety').scrollIntoView({behavior: 'smooth'})" class="pill-btn">Safety & Risk</button>
+    </div>
+  </div>
+</div>
+
+<section id="metrics" class="section-pad">
+  <div class="container">
+    <div class="text-center" style="margin-bottom: 50px;">
+      <h2>Measuring Stability</h2>
+      <p style="max-width: 600px; margin: 0 auto; color: #666;">
+        We don't guess. We count. Here is how we define our key performance indicators (KPIs).
+      </p>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+      
+      <div style="background: white; padding: 30px; border-left: 4px solid var(--accent-teal); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+        <strong style="display:block; font-size:1.5rem; color:var(--text-dark); margin-bottom:5px;">5,500+ Meals</strong>
+        <p style="font-size:0.85rem; color:#999; font-weight:700; text-transform:uppercase; margin-bottom:15px;">The Definition</p>
+        <p style="font-size:0.95rem; color:#555;">
+          A "Meal" is defined as a high-protein, calorie-dense unit (typically a burrito + coffee) handed directly to a participant. We do not count "snacks" or "water only" in this metric.
+        </p>
+      </div>
+
+      <div style="background: white; padding: 30px; border-left: 4px solid var(--accent-teal); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+        <strong style="display:block; font-size:1.5rem; color:var(--text-dark); margin-bottom:5px;">200+ Sessions</strong>
+        <p style="font-size:0.85rem; color:#999; font-weight:700; text-transform:uppercase; margin-bottom:15px;">The Definition</p>
+        <p style="font-size:0.95rem; color:#555;">
+          A "Session" is a facilitated, 60-minute event in a public space, led by a trained peer facilitator. Casual gatherings without a facilitator are not counted.
+        </p>
+      </div>
+
+      <div style="background: white; padding: 30px; border-left: 4px solid var(--accent-teal); box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
+        <strong style="display:block; font-size:1.5rem; color:var(--text-dark); margin-bottom:5px;">75% Retention</strong>
+        <p style="font-size:0.85rem; color:#999; font-weight:700; text-transform:uppercase; margin-bottom:15px;">The Definition</p>
+        <p style="font-size:0.95rem; color:#555;">
+          Defined as participants who return for a second session within 14 days of their first visit. This measures our ability to create immediate safety and belonging.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="roi" class="section-pad" style="background: #fafafa; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
   <div class="container">
     
     <div class="text-center" style="margin-bottom: 60px;">
@@ -59,60 +109,107 @@
   </div>
 </section>
 
-<section class="section-pad" style="background: var(--bg-paper);">
-  <div class="container text-center">
-    
-    <div style="max-width: 700px; margin: 0 auto;">
-      <h2 style="margin-bottom: 25px;">Financial Integrity</h2>
-      <p style="font-size: 1.1rem; color: #555; margin-bottom: 40px;">
-        We value the trust of our donors and the community. As a registered 501(c)(3) organization, our federal tax filings (Form 990) are public record.
-      </p>
-
-      <div style="background: white; padding: 40px; border-radius: 8px; border: 1px solid #ddd; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-        <h3 style="font-size: 1.3rem; color: var(--text-dark); margin-bottom: 15px;">How to Verify Our Status</h3>
-        <p style="font-size: 0.95rem; color: #666; margin-bottom: 30px;">
-          To view our official filings, please visit the IRS Tax Exempt Organization Search tool and search using our Employer Identification Number (EIN).
+<section id="financials" style="background: var(--bg-stone); padding: 80px 0;">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+      
+      <div>
+        <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Financial Integrity</h2>
+        <p style="font-size: 1.1rem; color: #555; margin-bottom: 30px;">
+          We value the trust of our donors and the community. As a registered 501(c)(3) organization, our federal tax filings (Form 990) are public record.
         </p>
 
-        <div style="background: var(--bg-stone); padding: 15px; border-radius: 4px; display: inline-block; margin-bottom: 25px;">
-          <span style="display: block; font-size: 0.8rem; color: #777; text-transform: uppercase; letter-spacing: 0.1em;">Our EIN</span>
-          <strong style="font-size: 1.5rem; color: var(--text-dark); letter-spacing: 1px;">47-2890218</strong>
-        </div>
+        <div style="background: white; padding: 30px; border-radius: 8px; border: 1px solid #ddd;">
+          <h3 style="font-size: 1.1rem; color: var(--text-dark); margin-bottom: 15px;">How to Verify Our Status</h3>
+          <p style="font-size: 0.95rem; color: #666; margin-bottom: 20px;">
+            To view our official filings, visit the IRS Tax Exempt Organization Search tool and search using our EIN.
+          </p>
 
-        <div>
-          <a href="https://apps.irs.gov/app/eos/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-width: 2px;">
+          <div style="background: var(--bg-stone); padding: 15px; border-radius: 4px; margin-bottom: 20px;">
+            <span style="display: block; font-size: 0.8rem; color: #777; text-transform: uppercase; letter-spacing: 0.1em;">Our EIN</span>
+            <strong style="font-size: 1.4rem; color: var(--text-dark); letter-spacing: 1px;">47-2890218</strong>
+          </div>
+
+          <a href="https://apps.irs.gov/app/eos/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="border-width: 2px; width: 100%; text-align: center;">
             Open IRS Search Tool →
           </a>
         </div>
       </div>
 
-    </div>
+      <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+        <h3 style="text-align: center; margin-bottom: 30px; color: var(--accent-teal);">Allocation of Funds</h3>
+        
+        <div style="margin-bottom: 25px;">
+          <div style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:bold; margin-bottom:8px;">
+            <span>Program Services (Direct Aid)</span>
+            <span>82%</span>
+          </div>
+          <div style="height: 12px; background: #eee; border-radius: 6px; overflow: hidden;">
+            <div style="height: 100%; width: 82%; background: var(--accent-teal);"></div>
+          </div>
+        </div>
 
+        <div style="margin-bottom: 25px;">
+          <div style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:bold; margin-bottom:8px;">
+            <span>Operations & Logistics</span>
+            <span>12%</span>
+          </div>
+          <div style="height: 12px; background: #eee; border-radius: 6px; overflow: hidden;">
+            <div style="height: 100%; width: 12%; background: var(--accent-earth);"></div>
+          </div>
+        </div>
+
+        <div>
+          <div style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:bold; margin-bottom:8px;">
+            <span>Fundraising & Admin</span>
+            <span>6%</span>
+          </div>
+          <div style="height: 12px; background: #eee; border-radius: 6px; overflow: hidden;">
+            <div style="height: 100%; width: 6%; background: #999;"></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 </section>
 
-<section class="section-pad" style="background: white;">
+<section id="safety" class="section-pad">
   <div class="container">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center;">
+    <div class="text-center" style="margin-bottom: 60px;">
+      <h2>Risk & Safety Protocols</h2>
+      <p style="max-width: 700px; margin: 0 auto; color: #666;">
+        We operate in public spaces with vulnerable populations. Safety is not an accident; it is a design choice.
+      </p>
+    </div>
+
+    <div style="background: white; border: 1px solid #eee; border-top: 4px solid var(--accent-earth); padding: 40px;">
       
-      <div>
-        <div style="font-size: 2rem; color: var(--accent-earth); margin-bottom: 15px;">100%</div>
-        <h3 style="font-size: 1.2rem;">Independent</h3>
-        <p style="font-size: 0.9rem; color: #666;">We are not government funded. We rely on community support.</p>
-      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+        
+        <div>
+          <h3 style="font-size: 1.2rem; color: var(--text-dark);">1. The Clinical Boundary</h3>
+          <p style="font-size: 0.95rem; color: #555;">
+            We are <strong>not</strong> a clinical mental health provider. We do not diagnose, prescribe, or treat. We provide "Pre-Clinical Stabilization." All serious medical or psychiatric needs are referred to our qualified partners.
+          </p>
+        </div>
 
-      <div>
-        <div style="font-size: 2rem; color: var(--accent-earth); margin-bottom: 15px;">Local</div>
-        <h3 style="font-size: 1.2rem;">Salt Lake Rooted</h3>
-        <p style="font-size: 0.9rem; color: #666;">Every dollar raised stays in the Salt Lake Valley.</p>
-      </div>
+        <div>
+          <h3 style="font-size: 1.2rem; color: var(--text-dark);">2. De-Escalation First</h3>
+          <p style="font-size: 0.95rem; color: #555;">
+            Our volunteers are trained in non-violent de-escalation. We maintain a "low-barrier" but "high-boundary" environment. Violence, predation, or weapons result in immediate removal from the circle.
+          </p>
+        </div>
 
-      <div>
-        <div style="font-size: 2rem; color: var(--accent-earth); margin-bottom: 15px;">Lean</div>
-        <h3 style="font-size: 1.2rem;">Low Overhead</h3>
-        <p style="font-size: 0.9rem; color: #666;">We operate with minimal administrative costs to maximize impact.</p>
-      </div>
+        <div>
+          <h3 style="font-size: 1.2rem; color: var(--text-dark);">3. Data Privacy</h3>
+          <p style="font-size: 0.95rem; color: #555;">
+            We do not collect government IDs or biometric data. We track engagement via first name/nickname only to protect the dignity and anonymity of our participants.
+          </p>
+        </div>
 
+      </div>
     </div>
   </div>
 </section>
