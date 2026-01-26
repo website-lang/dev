@@ -1,64 +1,93 @@
+// app.js
+
+// 1. SETUP & CONFIGURATION
 const appContainer = document.getElementById('app-container');
 const views = ['home', 'practice', 'volunteer', 'media', 'blog', 'team', 'donate', 'family', 'impact'];
 const viewCache = {};
 
-// 1. ROUTER: Loads content into the container
+// 2. ROUTER: Loads content into the container
 async function loadView() {
+  // Get hash, remove '#', default to 'home'
   const hash = window.location.hash.replace('#', '') || 'home';
   
+  // Safety Check: If the container isn't found, stop (prevents console errors)
+  if (!appContainer) return;
+
   try {
     let html;
+
+    // A. Check Cache First
     if (viewCache[hash]) {
       html = viewCache[hash];
-    } else {
+    } 
+    // B. Fetch from Server (Relative path fixes GitHub /dev/ issue)
+    else {
       const response = await fetch(`views/${hash}.html`);
-      if (!response.ok) throw new Error('View not found');
+      
+      if (!response.ok) {
+        throw new Error(`View '${hash}' not found`);
+      }
+      
       html = await response.text();
       viewCache[hash] = html;
     }
     
+    // C. Render
     appContainer.innerHTML = html;
     window.scrollTo(0, 0);
     
-    // Initialize specific page logic
-    if(hash === 'donate') initDonationLogic();
-    if(hash === 'media') loadPressData();
-    if(hash === 'blog') loadBlogData();
-    if(hash === 'volunteer') initVolunteerTabs(); // Ensure tabs work
+    // D. Initialize Page-Specific Logic
+    if (hash === 'donate') initDonationLogic();
+    if (hash === 'media') loadPressData();
+    if (hash === 'blog') loadBlogData();
+    if (hash === 'volunteer') initVolunteerTabs();
 
   } catch (error) {
-    appContainer.innerHTML = `<div class="container text-center" style="padding:50px;"><h2>404</h2><p>Page not found.</p></div>`;
+    console.error('Router Error:', error);
+    appContainer.innerHTML = `
+      <div class="container section-pad text-center">
+        <h2>Page Not Found</h2>
+        <p>Sorry, we couldn't load this section.</p>
+        <a href="#home" class="btn btn-primary">Return Home</a>
+      </div>
+    `;
   }
 }
 
-// 2. PRELOADER: Fetches all views in background
+// 3. PRELOADER: Fetches all views in background
 async function preloadAll() {
   for (const view of views) {
     if (!viewCache[view]) {
       try {
         const res = await fetch(`views/${view}.html`);
-        viewCache[view] = await res.text();
-      } catch (e) {}
+        if (res.ok) {
+          viewCache[view] = await res.text();
+        }
+      } catch (e) {
+        // Silently fail for preload, it's optional
+      }
     }
   }
 }
 
-// 3. PAGE LOGIC: Donation Toggle
+// 4. PAGE LOGIC: Donation Toggle
 function initDonationLogic() {
   window.selectDonation = function(amount, intervalCode) {
-    // 1. Visual Selection
+    // Visual Selection
     document.querySelectorAll('.donate-option').forEach(b => b.classList.remove('selected'));
-    event.currentTarget.classList.add('selected');
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('selected');
+    }
 
-    // 2. Build URL
+    // Build URL
     let url = `https://donorbox.org/embed/understanding-us?default_interval=${intervalCode}`;
     
-    // Only add amount if it's a specific number (not custom)
+    // Only add amount if it's a specific number
     if (amount) {
       url += `&amount=${amount}`;
     }
 
-    // 3. Update Iframe
+    // Update Iframe
     const iframe = document.getElementById('dbox-iframe');
     if(iframe) {
       iframe.src = url;
@@ -66,70 +95,82 @@ function initDonationLogic() {
   };
 }
 
-// 4. PAGE LOGIC: Volunteer Tabs
+// 5. PAGE LOGIC: Volunteer Tabs
 function initVolunteerTabs() {
   window.switchTab = function(tabName) {
+    // Hide all contents
     document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-    document.getElementById('tab-' + tabName).classList.add('active');
+    // Show target content
+    const target = document.getElementById('tab-' + tabName);
+    if (target) target.classList.add('active');
     
+    // Update Buttons
     document.querySelectorAll('.pill-btn').forEach(el => el.classList.remove('active'));
-    // Find the button that was clicked (approximate)
-    const buttons = document.querySelectorAll('.pill-btn');
-    buttons.forEach(btn => {
-      if(btn.textContent.toLowerCase().includes(tabName === 'park' ? 'park' : tabName === 'food' ? 'food' : 'admin')) {
-         btn.classList.add('active');
-      }
-    });
+    
+    // Highlight the clicked button (searching by text content is a bit risky, so we rely on the click event if possible)
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
   }
 }
 
-// 5. DATA FETCH: Press
+// 6. DATA FETCH: Press (Media Page)
 async function loadPressData() {
+  const container = document.getElementById('press-container'); // This ID must exist in media.html
+  if (!container) return;
+
   try {
     const res = await fetch('data/press.json');
-    const data = await res.json();
-    const container = document.getElementById('press-container');
+    if (!res.ok) throw new Error('Press data missing');
     
-    if(container) {
-      container.innerHTML = data.map(item => `
-        <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="press-list-item">
-          <div class="press-list-date">${item.date}</div>
-          <div class="press-list-content">
-            <span class="press-list-source">${item.source}</span>
-            <h3 class="press-list-title">${item.title}</h3>
-          </div>
-          <div class="press-list-arrow">→</div>
-        </a>
-      `).join('');
-    }
-  } catch(e) { console.error("Press data error", e); }
+    const data = await res.json();
+    
+    container.innerHTML = data.map(item => `
+      <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="press-list-item">
+        <div class="press-list-date">${item.date}</div>
+        <div class="press-list-content">
+          <span class="press-list-source">${item.source}</span>
+          <h3 class="press-list-title">${item.title}</h3>
+        </div>
+        <div class="press-list-arrow">→</div>
+      </a>
+    `).join('');
+  } catch(e) { 
+    console.error("Press data error", e);
+    // Optional: container.innerHTML = '<p>No recent news found.</p>';
+  }
 }
 
-// 6. DATA FETCH: Blog
+// 7. DATA FETCH: Blog (Stories Page)
 async function loadBlogData() {
+  const container = document.getElementById('blog-container'); // This ID must exist in blog.html
+  if (!container) return;
+
   try {
     const res = await fetch('data/blog.json');
+    if (!res.ok) throw new Error('Blog data missing');
+
     const data = await res.json();
-    const container = document.getElementById('blog-container');
     
-    if(container) {
-      container.innerHTML = data.map(item => `
-        <div class="press-card" style="padding: 30px; border-top: 4px solid var(--accent-earth);">
-          <span style="color:var(--accent-teal); font-weight:900; letter-spacing:0.1em; text-transform:uppercase; font-size:0.75rem; display:block; margin-bottom:15px;">${item.category}</span>
-          <h3 style="font-size: 1.4rem; margin-bottom: 15px;">${item.title}</h3>
-          <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">${item.excerpt}</p>
-          <div style="margin-top: 20px; font-size: 0.8rem; color: #999; font-style: italic;">
-            ${item.date}
-          </div>
+    container.innerHTML = data.map(item => `
+      <div class="press-card" style="padding: 30px; border-top: 4px solid var(--accent-earth);">
+        <span style="color:var(--accent-teal); font-weight:900; letter-spacing:0.1em; text-transform:uppercase; font-size:0.75rem; display:block; margin-bottom:15px;">${item.category}</span>
+        <h3 style="font-size: 1.4rem; margin-bottom: 15px;">${item.title}</h3>
+        <p style="font-size: 0.95rem; color: #666; line-height: 1.6;">${item.excerpt}</p>
+        <div style="margin-top: 20px; font-size: 0.8rem; color: #999; font-style: italic;">
+          ${item.date}
         </div>
-      `).join('');
-    }
-  } catch(e) { console.error("Blog data error", e); }
+      </div>
+    `).join('');
+  } catch(e) { 
+    console.error("Blog data error", e); 
+    container.innerHTML = '<p class="text-center text-muted">Stories loading...</p>';
+  }
 }
 
-// INIT
+// 8. INITIALIZATION
 window.addEventListener('hashchange', loadView);
 document.addEventListener('DOMContentLoaded', () => {
   loadView();
-  setTimeout(preloadAll, 1000);
+  setTimeout(preloadAll, 2000); // Wait 2s before preloading to prioritize main content
 });
