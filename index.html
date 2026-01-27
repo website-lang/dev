@@ -2,18 +2,18 @@
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNNVGCQLFT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  // 1. Google Analytics Config (Your new ID)
-  gtag('config', 'G-HNNVGCQLFT');
+    // 1. Google Analytics Config
+    gtag('config', 'G-HNNVGCQLFT');
 
-  // 2. Google Ads Config (Placeholder for later)
-  // When you get your Ads ID (starts with AW-), uncomment the line below:
-  // gtag('config', 'AW-XXXXXXXXXX'); 
-</script>
+    // 2. Google Ads Config (Placeholder for later)
+    // gtag('config', 'AW-XXXXXXXXXX'); 
+  </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -142,9 +142,10 @@
           <li><a href="#impact">Impact</a></li>
           <li><a href="#practice">The Practice</a></li>
           <li><a href="#family">Families</a></li>
-          <li><a href="#blog">Stories</a></li> <li><a href="#volunteer">Get Involved</a></li>
+          <li><a href="#blog">Stories</a></li> 
+          <li><a href="#volunteer">Get Involved</a></li>
           <li><a href="#media">Press</a></li>
-          <!--  <li><a href="#team">Team</a></li> -->
+          <li><a href="#" id="navContactLink">Contact</a></li> 
           <li><a href="#donate" class="btn-nav-donate">Donate</a></li>
         </ul>
       </nav>
@@ -203,7 +204,6 @@
           <a href="#family">For Families</a>
           <a href="#blog">Stories of Agency</a>
           <a href="#impact">Our Impact</a>
-         <!-- <a href="#team">Leadership</a> -->
           <a href="#donate">Support the Work</a>
         </div>
 
@@ -214,10 +214,139 @@
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
-  
+  <button id="openContactBtn" aria-label="Contact Us" style="position: fixed; bottom: 25px; right: 25px; background: var(--accent-teal, #008080); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.3); z-index: 1000; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+  </button>
+
+  <div id="contactModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2000; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease;">
+    
+    <div style="background: white; padding: 35px; border-radius: 8px; width: 90%; max-width: 500px; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.25);">
+      
+      <button id="closeContactBtn" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #999; line-height: 1;">&times;</button>
+      
+      <h3 style="margin-top: 0; color: #333; margin-bottom: 20px;">Send a Message</h3>
+      
+      <form id="google-sheet-form">
+        <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+          <input type="text" name="firstName" placeholder="First Name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
+          <input type="text" name="lastName" placeholder="Last Name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+          <input type="email" name="email" placeholder="Email Address" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px;">
+        </div>
+
+        <div style="margin-bottom: 15px;">
+          <label style="font-size: 0.9rem; color: #666; display: block; margin-bottom: 5px;">I'm interested in:</label>
+          <select name="interest" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; background: white; font-size: 16px;">
+            <option value="General Inquiry">General Inquiry</option>
+            <option value="Volunteering">Volunteering</option>
+            <option value="Family Support">Family Support</option>
+            <option value="Donating">Donating/Funding</option>
+          </select>
+        </div>
+        
+        <div style="margin-bottom: 15px;">
+          <textarea name="message" rows="4" placeholder="Your Message (Optional)" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; font-size: 16px;"></textarea>
+        </div>
+
+        <div style="margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+          <input type="checkbox" name="subscribe" id="subCheck" checked>
+          <label for="subCheck" style="font-size: 0.9rem; color: #555;">Subscribe to newsletter</label>
+        </div>
+        
+        <button type="submit" id="submitBtn" style="width: 100%; padding: 14px; background-color: var(--accent-teal, #008080); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">Send Message</button>
+        <p id="formStatus" style="text-align: center; margin-top: 15px; font-size: 0.9rem; color: #008080; display: none;">Sending...</p>
+      </form>
+    </div>
+  </div>
+
   <script>
-    // Mobile Nav Logic
+    // YOUR SPECIFIC URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxxNA_5C5V-pEOETUPW48oVubw5UJ-uuAElugexLrUCZLGC1ZSAME7fob1WVtupj9vt/exec';
+    
+    const form = document.forms['google-sheet-form'];
+    const modal = document.getElementById('contactModal');
+    const openBtn = document.getElementById('openContactBtn');
+    const navLink = document.getElementById('navContactLink');
+    const closeBtn = document.getElementById('closeContactBtn');
+    const statusMsg = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Function to Open Modal
+    function openModal(e) {
+      if(e) e.preventDefault(); 
+      modal.style.display = 'flex';
+      setTimeout(() => { modal.style.opacity = '1'; }, 10);
+    }
+
+    // Function to Close Modal
+    function closeModal() {
+      modal.style.opacity = '0';
+      setTimeout(() => { modal.style.display = 'none'; }, 300);
+    }
+
+    // Event Listeners
+    if(openBtn) openBtn.addEventListener('click', openModal);
+    if(navLink) navLink.addEventListener('click', openModal);
+    if(closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    // Close if clicking outside the white box
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+
+    // Handle Form Submit
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      
+      // UI Updates
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Sending...";
+      statusMsg.style.display = "block";
+      statusMsg.style.color = "#008080";
+      statusMsg.innerText = "Sending securely...";
+
+      // Capture Data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      data.subscribe = document.getElementById('subCheck').checked; 
+
+      // Send to Google Script
+      fetch(scriptURL, { 
+        method: 'POST', 
+        body: JSON.stringify(data),
+        mode: 'no-cors' 
+      })
+      .then(response => {
+        // Success State
+        statusMsg.style.color = 'green';
+        statusMsg.innerText = "Message Sent! We'll be in touch.";
+        form.reset();
+        submitBtn.innerText = "Sent";
+        
+        // Close automatically after 2.5 seconds
+        setTimeout(() => {
+          closeModal();
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Send Message";
+          statusMsg.style.display = "none";
+        }, 2500);
+      })
+      .catch(error => {
+        // Error State
+        statusMsg.style.color = 'red';
+        statusMsg.innerText = "Error. Please email us directly at info@understanding-us.org";
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Try Again";
+        console.error('Error!', error.message);
+      });
+    });
+  </script>
+
+  <script>
     const toggleBtn = document.querySelector('.mobile-toggle');
     const nav = document.querySelector('nav');
 
@@ -234,6 +363,8 @@
       }
     });
   </script>
+
+  <script src="js/app.js"></script>
 
 </body>
 </html>
