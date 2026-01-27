@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://understanding-us.org/sitemap.xml
+Sitemap: https://www.understanding-us.org/sitemap.xml
