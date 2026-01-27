@@ -9,6 +9,17 @@ const viewCache = {};
 async function loadView() {
   // Get hash, remove '#', default to 'home'
   const hash = window.location.hash.replace('#', '') || 'home';
+
+  // --- ANALYTICS TRACKING ---
+  if (typeof gtag === 'function') {
+      gtag('event', 'page_view', {
+          // FIX: Changed 'viewName' to 'hash'
+          page_title: hash.charAt(0).toUpperCase() + hash.slice(1),
+          page_location: window.location.href,
+          page_path: "/" + hash,
+          send_to: 'G-HNNVGCQLFT' 
+      });
+  }
   
   // Safety Check: If the container isn't found, stop (prevents console errors)
   if (!appContainer) return;
@@ -22,6 +33,7 @@ async function loadView() {
     } 
     // B. Fetch from Server (Relative path fixes GitHub /dev/ issue)
     else {
+      // NOTE: Ensure your files are exactly named 'home.html', 'family.html', etc.
       const response = await fetch(`views/${hash}.html`);
       
       if (!response.ok) {
@@ -107,7 +119,7 @@ function initVolunteerTabs() {
     // Update Buttons
     document.querySelectorAll('.pill-btn').forEach(el => el.classList.remove('active'));
     
-    // Highlight the clicked button (searching by text content is a bit risky, so we rely on the click event if possible)
+    // Highlight the clicked button
     if (event && event.currentTarget) {
         event.currentTarget.classList.add('active');
     }
@@ -116,9 +128,11 @@ function initVolunteerTabs() {
 
 // 6. DATA FETCH: Press (Media Page)
 async function loadPressData() {
-  const container = document.getElementById('press-container'); // This ID must exist in media.html
-  if (!container) return;
+  const container = document.getElementById('press-container'); 
+  if (!container) return; // Stop if element doesn't exist on this view
 
+  // If you don't have data/press.json, this will error.
+  // Make sure that file exists, or remove this function.
   try {
     const res = await fetch('data/press.json');
     if (!res.ok) throw new Error('Press data missing');
@@ -136,14 +150,15 @@ async function loadPressData() {
       </a>
     `).join('');
   } catch(e) { 
-    console.error("Press data error", e);
-    // Optional: container.innerHTML = '<p>No recent news found.</p>';
+    console.warn("Press data error (ignore if no json file yet):", e);
+    // Fallback content if JSON fails
+    container.innerHTML = '<p class="text-center text-muted">News archive loading...</p>';
   }
 }
 
 // 7. DATA FETCH: Blog (Stories Page)
 async function loadBlogData() {
-  const container = document.getElementById('blog-container'); // This ID must exist in blog.html
+  const container = document.getElementById('blog-container'); 
   if (!container) return;
 
   try {
@@ -163,7 +178,7 @@ async function loadBlogData() {
       </div>
     `).join('');
   } catch(e) { 
-    console.error("Blog data error", e); 
+    console.warn("Blog data error (ignore if no json file yet):", e); 
     container.innerHTML = '<p class="text-center text-muted">Stories loading...</p>';
   }
 }
@@ -172,5 +187,5 @@ async function loadBlogData() {
 window.addEventListener('hashchange', loadView);
 document.addEventListener('DOMContentLoaded', () => {
   loadView();
-  setTimeout(preloadAll, 2000); // Wait 2s before preloading to prioritize main content
+  setTimeout(preloadAll, 2000); 
 });
